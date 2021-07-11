@@ -1,4 +1,4 @@
-# Azumi Userbot <> Bee Company
+# Azumi Userbot
 
 <p align="center">
     <a href="https://github.com/levina-lab/AzumiUserbot/actions?query=workflow%3AFailedChecker" > <img src="https://img.shields.io/github/workflow/status/levina-lab/AzumiUserbot/FailedChecker/sql-extended?label=Build&style=flat-square&logo=github-actions&logoColor=white&color=98CE00" alt="FailedChecker" /></a>
@@ -8,7 +8,7 @@
     <a href="https://github.com/levina-lab/AzumiUserbot/watchers"><img src="https://img.shields.io/github/watchers/levina-lab/AzumiUserbot?label=Watch&style=flat-square&logo=github&color=FF70A6" alt="Watch" /></a>
     <a href="https://github.com/levina-lab/AzumiUserbot/stargazers"><img src="https://img.shields.io/github/stars/levina-lab/AzumiUserbot?label=Stars&style=flat-square&logo=github&color=F87575" alt="Stars" /></a>
     <a href="https://github.com/levina-lab/AzumiUserbot/network/members"><img src="https://img.shields.io/github/forks/levina-lab/AzumiUserbot?label=Fork&style=flat-square&logo=github&color=E0777D" alt="Fork" /></a>
-    <a href="https://hub.docker.com/r/movecrew/AzumiUserbot"> <img src="https://img.shields.io/docker/image-size/movecrew/one4ubot/alpine-latest?label=Docker%20Size&style=flat-square&logo=docker&logoColor=white&color=1B98E0" alt="Docker Image" /></a><br>
+    <a href="https://hub.docker.com/r/movecrew/AzumiUserbot"> <img src="https://img.shields.io/docker/image-size/movecrew/AzumiUserbot/alpine-latest?label=Docker%20Size&style=flat-square&logo=docker&logoColor=white&color=1B98E0" alt="Docker Image" /></a><br>
     <a href="https://t.me/gcsupportbots"> <img src="https://img.shields.io/badge/telegram-Support_Group-blue?style=social&logo=telegram" alt="Support" /></a>
 </p>
 
