@@ -1,4 +1,4 @@
-# One4uBot userbot project
+# Azumi Userbot
 
 <p align="center">
     <a href="https://github.com/MoveAngel/One4uBot/actions?query=workflow%3AFailedChecker" > <img src="https://img.shields.io/github/workflow/status/MoveAngel/One4uBot/FailedChecker/sql-extended?label=Build&style=flat-square&logo=github-actions&logoColor=white&color=98CE00" alt="FailedChecker" /></a>
