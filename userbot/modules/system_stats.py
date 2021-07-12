@@ -237,7 +237,7 @@ async def amireallyalive(alive):
         "`----------------------------------`\n"
         f"•  💻 `Running on     : {repo.active_branch.name} `\n"
         f"•  🗃 `Loaded modules : {len(modules)} `\n"
-        f"•  🧸 `One4uBot       : v{USERBOT_VERSION} `\n"
+        f"•  🧸 `Azumi Userbot  : v{USERBOT_VERSION} `\n"
         f"•  🕒 `Bot Uptime     : {uptime} `\n"
         "`⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊶⊷⊶⊶⊶⊶⊶⊶⊶⊶⊶⊶`"
     )
