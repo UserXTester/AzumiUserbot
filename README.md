@@ -24,7 +24,7 @@ Dapatkan STRING_SESSION dengan cara menekan tombol dibawah ini 👇
 
 ### Atau run di terminal anda dengan command dibawah ini 👇
 ```
-wget https://raw.githubusercontent.com/MoveAngel/One4uBot/sql-extended/terminal_getstring.sh && bash terminal_getstring.sh
+wget https://raw.githubusercontent.com/levina-lab/AzumiUserbot/main/terminal_getstring.sh && bash terminal_getstring.sh
 ```
 
 ## Deploy Userbot?
