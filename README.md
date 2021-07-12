@@ -22,29 +22,28 @@ Dapatkan STRING_SESSION dengan cara menekan tombol dibawah ini 👇
 ### Run on repl.it
 [![Run repl.it](https://img.shields.io/badge/run-string__session.py-blue?style=flat-square&logo=repl.it)](https://replit.com/@levinalab/StringSession#main.py?lite=1&outputonly=1)
 
-### or Run on your terminal
+### Atau run di terminal anda dengan command dibawah ini 👇
 ```
 wget https://raw.githubusercontent.com/MoveAngel/One4uBot/sql-extended/terminal_getstring.sh && bash terminal_getstring.sh
 ```
 
-## How To Host?
+## Deploy Userbot?
 
-The easiest way to deploy this great bot! is click on button below.
-Make sure you have an account of heroku and follow all the steps required.
+Cara mudah untuk mendeploy userbot ini adalah dengan mendeploy nya di heroku, pastikan anda sudah memiliki akun heroku dan mengikuti semua step dengan benar.
 
 <p align="left"><a href="https://heroku.com/deploy?template=https://github.com/levina-lab/AzumiUserbot/tree/sql-extended"> <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy to Heroku" /></a></p>
 
-For further guide you can head to [Groups and Support](https://github.com/MoveAngel/One4uBot#Groups-and-Support) or read this [guide](https://telegra.ph/How-to-host-a-Telegram-Userbot-07-01-2)
+Jika perlu, baca [panduan](https://telegra.ph/How-to-host-a-Telegram-Userbot-07-01-2) ini untuk mendeploy userbot.
 
 ## Groups and Support
 
-if you want new features, or announcements, you can follow our [UserbotIndo Channel](https://t.me/userbotindocloud).
+Untuk informasi update dan fitur baru, silahkan join ke [Veez Project Channel](https://t.me/levinachannel).
 
-For discussion, bug reporting, and help, you can join [UserbotIndo Support Group](https://t.me/userbotindo).
+Untuk diskusi, laporan bug, dan error, silahkan join ke [Veez Support Group](https://t.me/gcsupportbots).
 
 ## Credits
 
-Thanks: 
+💖 Thanks To: 
 * [RaphielGang](https://github.com/RaphielGang) - Telegram-Paperplane
 * [AvinashReddy3108](https://github.com/AvinashReddy3108) - PaperplaneExtended
 * [kandnub](https://github.com/kandnub) - TG-UserBot
