@@ -31,7 +31,7 @@ wget https://raw.githubusercontent.com/MoveAngel/One4uBot/sql-extended/terminal_
 
 Cara mudah untuk mendeploy userbot ini adalah dengan mendeploy nya di heroku, pastikan anda sudah memiliki akun heroku dan mengikuti semua step dengan benar.
 
-<p align="left"><a href="https://heroku.com/deploy?template=https://github.com/levina-lab/AzumiUserbot/tree/sql-extended"> <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy to Heroku" /></a></p>
+<p align="left"><a href="https://heroku.com/deploy?template=https://github.com/levina-lab/AzumiUserbot/tree/main"> <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy to Heroku" /></a></p>
 
 Jika perlu, baca [panduan](https://telegra.ph/How-to-host-a-Telegram-Userbot-07-01-2) ini untuk mendeploy userbot.
 
