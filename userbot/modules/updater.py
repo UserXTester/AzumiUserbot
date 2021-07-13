@@ -65,8 +65,8 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
         heroku_applications = heroku.apps()
         if HEROKU_APP_NAME is None:
             await event.edit(
-                "`Please set up HEROKU_APP_NAME variable"
-                " to be able to deploy newest changes of userbot.`"
+                "`Mohon atur HEROKU_APP_NAME dengan benar"
+                " agar dapat memperbarui userbot anda.`"
             )
             repo.__del__()
             return
@@ -79,7 +79,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
                 f"{txt}\n`Invalid Heroku credentials for deploying userbot dyno.`"
             )
             return repo.__del__()
-        await event.edit("`Userbot dyno build in progress, please wait...`")
+        await event.edit("`userbot dyno build in progress, please wait...`")
         ups_rem.fetch(ac_br)
         repo.git.reset("--hard", "FETCH_HEAD")
         heroku_git_url = heroku_app.git_url.replace(
@@ -103,7 +103,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
             )
 
     else:
-        await event.edit("`Please set up HEROKU_API_KEY variable.`")
+        await event.edit("`Mohon atur HEROKU_API_KEY dengan benar.`")
     return
 
 
@@ -131,7 +131,7 @@ async def update(event, repo, ups_rem, ac_br):
 @register(outgoing=True, pattern=r"^.update(?: |$)(now|deploy)?")
 async def upstream(event):
     "For .update command, check if the bot is up to date, update if specified"
-    await event.edit("`Checking for updates, please wait....`")
+    await event.edit("`memeriksa pembaruan, tunggu sebentar...`")
     conf = event.pattern_match.group(1)
     off_repo = UPSTREAM_REPO_URL
     force_update = False
@@ -202,14 +202,14 @@ async def upstream(event):
             remove("output.txt")
         else:
             await event.edit(changelog_str)
-        return await event.respond('`do ".update now/deploy" to update`')
+        return await event.respond('`ketik ".update now/deploy" untuk update`')
 
     if force_update:
         await event.edit(
             "`Force-Syncing to latest stable userbot code, please wait...`"
         )
     else:
-        await event.edit("`Updating One4uBot, please wait....`")
+        await event.edit("`memperbarui Azumi Userbot anda, tunggu sebentar...`")
     if conf == "now":
         await update(event, repo, ups_rem, ac_br)
     elif conf == "deploy":
