@@ -230,16 +230,16 @@ async def amireallyalive(alive):
     uptime = await get_readable_time((time.time() - StartTime))
     output = (
         "`Bot services is running...`\n"
-        "`⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊶⊷⊶⊶⊶⊶⊶⊶⊶⊶⊶⊶`\n"
+        "`⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊶⊷⊶⊶⊶⊶⊶⊶⊶`\n"
         f"•  ⚙️ `Telethon       : v{version.__version__} `\n"
         f"•  🐍 `Python         : v{python_version()} `\n"
         f"•  👤 `User           :`  {DEFAULTUSER} \n"
-        "`----------------------------------`\n"
-        f"•  💻 `Running on     : {repo.active_branch.name} `\n"
+        "`-----------------------------`\n"
+        f"•  💻 `Branch         : {repo.active_branch.name} `\n"
         f"•  🗃 `Loaded modules : {len(modules)} `\n"
         f"•  🧸 `Azumi Userbot  : v{USERBOT_VERSION} `\n"
-        f"•  🕒 `Bot Uptime     : {uptime} `\n"
-        "`⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊶⊷⊶⊶⊶⊶⊶⊶⊶⊶⊶⊶`"
+        f"•  🕒 `Uptime         : {uptime} `\n"
+        "`⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊶⊷⊶⊶⊶⊶⊶⊶⊶`"
     )
     if ALIVE_LOGO:
         try:
