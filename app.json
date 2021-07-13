@@ -57,7 +57,7 @@
       "required": false
     },
     "COUNTRY": {
-      "description": "Set your Country to be used in the .time and .date commands.",
+      "description": "Atur negara anda untuk digunakan di command .time and .date",
       "value": "ID",
       "required": false
     },
@@ -77,15 +77,15 @@
       "required": false
     },
     "OPEN_WEATHER_MAP_APPID": {
-      "description": "Get your own APPID (API key)from https://api.openweathermap.org/data/2.5/weather",
+      "description": "Weather app id ambil dari https://api.openweathermap.org/data/2.5/weather",
       "required": false
     },
     "GENIUS_ACCESS_TOKEN": {
-      "description": "Client Access Token from https://genius.com/api-clients.",
+      "description": "Genius access token ambil dari https://genius.com/api-clients.",
       "required": false
     },
     "BOTLOG": {
-      "description": "Incase you want to turn off logging, put this to false",
+      "description": "Untuk log chat userbot, untuk menonaktifkan atur ke False",
       "value": "True"
     },
     "DEEZER_ARL_TOKEN": {
@@ -102,15 +102,15 @@
       "value": "False"
     },
     "PM_AUTO_BAN": {
-      "description": "Untuk membatasi orang lain yang melakukan pm ke anda.",
+      "description": "Untuk membatasi orang lain yang melakukan pm ke anda, untuk mengaktifkan atur ke True.",
       "value": "False"
     },
     "OCR_SPACE_API_KEY": {
-      "description": "OCR API Key for .ocr command. Get from https://ocr.space/ocrapi",
+      "description": "OCR API Key untuk cmd .ocr ambil dari https://ocr.space/ocrapi",
       "required": false
     },
     "REM_BG_API_KEY": {
-      "description": "API Key for .rbg command. Get from https://www.remove.bg/api",
+      "description": "API Key untuk cmd .rbg ambil dari https://www.remove.bg/api",
       "required": false
     },
     "ANTI_SPAMBOT": {
@@ -130,8 +130,8 @@
       "required": false
     },
     "UPDATER_ALIAS": {
-      "description": "Set alias name for updater",
-      "required": false
+      "description": "Isi saja dengan nama kalian atau apa saja, bebas",
+      "required": true
     },
     "CLEAN_WELCOME": {
       "description": "When a new person joins, the old welcome message is deleted.",
