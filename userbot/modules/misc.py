@@ -102,7 +102,7 @@ async def repeat(rep):
 async def repo_is_here(wannasee):
     """ For .repo command, just returns the repo URL. """
     await wannasee.edit(
-        "╭──────────────┈\n│[🦊 Azumi-Userbot 🦊](https://github.com/levina-lab/AzumiUserbot)\n├──────────────┈\n│🏅 License: [GNU GPL-3.0](https://github.com/levina-lab/AzumiUserbot/blob/main/LICENSE) 🏅\n╰──────────────┈\n` ` [𝐆𝐑𝐎𝐔𝐏](t.me/gcsupportbots) ` `|` ` [𝐂𝐇𝐀𝐍𝐍𝐄𝐋](t.me/levinachannel) ` `"
+        "╭──────────────┈\n│` ` ` ` ʀᴇᴘᴏsɪᴛᴏʀʏ ` ` ` `\n│[🦊 Azumi-Userbot 🦊](https://github.com/levina-lab/AzumiUserbot)\n├──────────────┈\n│🏅 [GNU GPL-3.0](https://github.com/levina-lab/AzumiUserbot/blob/main/LICENSE) 🏅\n╰──────────────┈\n` ` [𝐆𝐑𝐎𝐔𝐏](t.me/gcsupportbots) ` `|` ` [𝐂𝐇𝐀𝐍𝐍𝐄𝐋](t.me/levinachannel) ` `"
     )
 
 
