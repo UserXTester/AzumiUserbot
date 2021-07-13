@@ -231,14 +231,14 @@ async def amireallyalive(alive):
     output = (
         "`Azumi Userbot is alive boss.`\n"
         "`⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊶⊷⊶⊶⊶⊶⊶⊶`\n"
-        f"•  ⚙️ `Telethon   : v{version.__version__} `\n"
-        f"•  🐍 `Python     : v{python_version()} `\n"
-        f"•  👤 `User       :`  {DEFAULTUSER} \n"
+        f"•  ⚙️ `Telethon  : v{version.__version__} `\n"
+        f"•  🐍 `Python    : v{python_version()} `\n"
+        f"•  👤 `User      :`  {DEFAULTUSER} \n"
         "`----------------------------`\n"
-        f"•  💻 `Branch     : {repo.active_branch.name} `\n"
-        f"•  🗃 `Modules     : {len(modules)} `\n"
-        f"•  🧸 `Version    : v{USERBOT_VERSION} `\n"
-        f"•  🕒 `Uptime     : {uptime} `\n"
+        f"•  💻 `Branch    : {repo.active_branch.name} `\n"
+        f"•  🗃 `Modules   : {len(modules)} `\n"
+        f"•  🦊 `Version   : v{USERBOT_VERSION} `\n"
+        f"•  🕒 `Uptime    : {uptime} `\n"
         "`⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊶⊷⊶⊶⊶⊶⊶⊶`"
     )
     if ALIVE_LOGO:
