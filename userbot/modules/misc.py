@@ -102,7 +102,7 @@ async def repeat(rep):
 async def repo_is_here(wannasee):
     """ For .repo command, just returns the repo URL. """
     await wannasee.edit(
-        "[💐 KLIK DISINI 💐](https://github.com/levina-lab/AzumiUserbot) to open AzumiUserbot's GitHub page."
+        "╭──────────────┈\n│[🦊 Azumi-Userbot 🦊](https://github.com/levina-lab/AzumiUserbot)\n├──────────────┈\n│🏅by: veez project 🏅\n╰──────────────┈"
     )
 
 
