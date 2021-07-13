@@ -15,15 +15,15 @@
   "stack": "container",
   "env": {
     "API_KEY": {
-      "description": "Get this value from my.telegram.org.",
+      "description": "Dapatkan dari my.telegram.org.",
       "required": true
     },
     "API_HASH": {
-      "description": "Get this value from my.telegram.org.",
+      "description": "Dapatkan dari from my.telegram.org.",
       "required": true
     },
     "STRING_SESSION": {
-      "description": "Get this value by running [python3 string_session.py] in Termux or local system.",
+      "description": "Isi dengan string session Telethon, ambil dari repl.it.",
       "required": true
     },
     "HEROKU_MEMEZ": {
@@ -32,11 +32,11 @@
       "required": true
     },
     "HEROKU_API_KEY": {
-      "description": "Your Heroku API key, get it from 'https://dashboard.heroku.com/account'",
+      "description": "Isi dengan Heroku Api Key, ambil dari 'https://dashboard.heroku.com/account'",
       "value": ""
     },
     "HEROKU_APP_NAME": {
-      "description": "Add the Heroku app name here. It helps with userbot updates.",
+      "description": "Isi dengan app name yang kamu isi dikolom pertama dipaling atas.",
       "required": true
     },
     "GITHUB_ACCESS_TOKEN": {
@@ -58,6 +58,7 @@
     },
     "COUNTRY": {
       "description": "Set your Country to be used in the .time and .date commands.",
+      "value": "ID",
       "required": false
     },
     "TZ_NUMBER": {
@@ -85,7 +86,7 @@
     },
     "BOTLOG": {
       "description": "Incase you want to turn off logging, put this to false",
-      "value": "False"
+      "value": "True"
     },
     "DEEZER_ARL_TOKEN": {
       "description": "Fill of your Deezer ARL token. Get from https://notabug.org/RemixDevs/DeezloaderRemix/wiki/Login+via+userToken",
@@ -93,7 +94,7 @@
       "value": ""
     },
     "BOTLOG_CHATID": {
-      "description": "ChatID of the Log group. Set it to '0' if BOTLOG = False and/or if LOGSPAMMER = False.",
+      "description": "Buat sebuah grup private, add @MissRose_Bot, ketik /id lalu isi disini.",
       "value": "0"
     },
     "CONSOLE_LOGGER_VERBOSE": {
@@ -101,7 +102,7 @@
       "value": "False"
     },
     "PM_AUTO_BAN": {
-      "description": "PM Auto-Ban Feature Switch. Also known as the 'bleep blop, this is a bot...' module.",
+      "description": "Untuk membatasi orang lain yang melakukan pm ke anda.",
       "value": "False"
     },
     "OCR_SPACE_API_KEY": {
