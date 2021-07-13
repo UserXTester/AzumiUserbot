@@ -19,8 +19,8 @@ async def _(event):
             try:
                 t = await event.ban_time(t)
             except BaseException:
-                return await event.edit("`Incorrect Format`")
-    await event.edit(f"`Starting Fake Typing For {t} sec.`")
+                return await event.edit("`incorrect format`")
+    await event.edit(f"`memulai fake typing dalam {t} detik.`")
     async with event.client.action(event.chat_id, "typing"):
         await asyncio.sleep(t)
 
@@ -37,8 +37,8 @@ async def _(event):
             try:
                 t = await event.ban_time(t)
             except BaseException:
-                return await event.edit("`Incorrect Format`")
-    await event.edit(f"`Starting Fake audio recording For {t} sec.`")
+                return await event.edit("`incorrect format`")
+    await event.edit(f"`memulai fake audio recording dalam {t} detik.`")
     async with event.client.action(event.chat_id, "record-audio"):
         await asyncio.sleep(t)
 
@@ -55,8 +55,8 @@ async def _(event):
             try:
                 t = await event.ban_time(t)
             except BaseException:
-                return await event.edit("`Incorrect Format`")
-    await event.edit(f"`Starting Fake video recording For {t} sec.`")
+                return await event.edit("`incorrect format`")
+    await event.edit(f"`memulai fake video recording dalam {t} detik.`")
     async with event.client.action(event.chat_id, "record-video"):
         await asyncio.sleep(t)
 
@@ -74,18 +74,18 @@ async def _(event):
                 t = await event.ban_time(t)
             except BaseException:
                 return await event.edit("`Incorrect Format`")
-    await event.edit(f"`Starting Fake Game Playing For {t} sec.`")
+    await event.edit(f"`memulai fake game playing dalam {t} detik.`")
     async with event.client.action(event.chat_id, "game"):
         await asyncio.sleep(t)
 
 CMD_HELP.update({
     "fakeaction":
-    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ftyping` <jumlah teks>\
-   \nUsage : Seakan akan sedang mengetik padahal tidak\
-   \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.faudio` <jumlah teks>\
-   \nUsage : Berfungsi sama seperti ftyping tapi ini dalam bentuk fake audio\
-   \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.fgame` <jumlah teks>\
-   \nUsage : Berfungsi sama seperti ftyping tapi ini dalam bentuk fake game\
-   \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.fvideo` <jumlah teks>\
-   \nUsage : Berfungsi sama seperti ftyping tapi ini dalam bentuk fake video"
+    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ftyping` <waktu>\
+   \nUsage : Fake action mengetik teks\
+   \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.faudio` <waktu>\
+   \nUsage : Fake action merekam audio\
+   \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.fgame` <waktu>\
+   \nUsage : Fake action bermain game\
+   \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.fvideo` <waktu>\
+   \nUsage : Fake action merekam video"
 })
