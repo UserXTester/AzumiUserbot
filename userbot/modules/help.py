@@ -22,7 +22,7 @@ async def help(event):
         string = ""
         for i in CMD_HELP:
             string += "`" + str(i)
-            string += "`\t\t\t||\t\t\t "
+            string += "`\t\t\t🔸\t\t\t "
         await event.edit(
             f"{string}"
             "\n\n💡 Untuk melihat detail & penjelasan setiap modul gunakan perintah help.\
