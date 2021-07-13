@@ -50,7 +50,7 @@ from userbot.utils import chrome, googleimagesdownload, progress
 CARBONLANG = "auto"
 TTS_LANG = "en"
 TRT_LANG = "en"
-TEMP_DOWNLOAD_DIRECTORY = "/root/userbot/.bin"
+TEMP_DOWNLOAD_DIRECTORY = "/AzumiUserbot && chmod 777 /AzumiUserbot"
 
 
 @register(outgoing=True, pattern="^.krblang (.*)")
