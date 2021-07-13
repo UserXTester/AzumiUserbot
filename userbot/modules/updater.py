@@ -76,7 +76,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
                 break
         if heroku_app is None:
             await event.edit(
-                f"{txt}\n`Invalid Heroku credentials for deploying userbot dyno.`"
+                f"{txt}\n`Kredensial Heroku tidak valid untuk mendeploy dyno userbot.`"
             )
             return repo.__del__()
         await event.edit("`userbot dyno build in progress, please wait...`")
@@ -95,7 +95,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
         except GitCommandError as error:
             await event.edit(f"{txt}\n`Here is the error log:\n{error}`")
             return repo.__del__()
-        await event.edit("`Successfully Updated!\n" "Restarting, please wait...`")
+        await event.edit("`🦊 Berhasil diperbarui!\n\n" "⌛ Restarting, proses ini akan berlangsung sebentar saja, tes dengan mengetik ping atau alive.`")
 
         if BOTLOG:
             await event.client.send_message(
@@ -114,7 +114,7 @@ async def update(event, repo, ups_rem, ac_br):
         repo.git.reset("--hard", "FETCH_HEAD")
     await update_requirements()
     await event.edit(
-        "`Successfully Updated!\n" "Bot is restarting... Wait for a second!`"
+        "`🦊 Berhasil diperbarui!\n\n" "⌛ Restarting, proses ini akan berlangsung sebentar saja, tes dengan mengetik ping atau alive.`"
     )
 
     if BOTLOG:
@@ -130,13 +130,13 @@ async def update(event, repo, ups_rem, ac_br):
 
 @register(outgoing=True, pattern=r"^.update(?: |$)(now|deploy)?")
 async def upstream(event):
-    "For .update command, check if the bot is up to date, update if specified"
+    "Perintah .update, untuk memeriksa pembaruan userbot dan memperbarui nya"
     await event.edit("`memeriksa pembaruan, tunggu sebentar...`")
     conf = event.pattern_match.group(1)
     off_repo = UPSTREAM_REPO_URL
     force_update = False
     try:
-        txt = "`Oops.. Updater cannot continue due to "
+        txt = "`maaf.. proses update tidak dapat dilanjutkan "
         txt += "some problems occured`\n\n**LOGTRACE:**\n"
         repo = Repo()
     except NoSuchPathError as error:
@@ -181,16 +181,16 @@ async def upstream(event):
 
     if changelog == "" and force_update is False:
         await event.edit(
-            f"\n`{UPDATER_ALIAS} is`  **up-to-date**  `with`  **{UPSTREAM_REPO_BRANCH}**\n"
+            f"\n`{UPDATER_ALIAS} sudah`  **versi terbaru**  `dengan`  **{UPSTREAM_REPO_BRANCH}**\n"
         )
         return repo.__del__()
 
     if conf is None and force_update is False:
         changelog_str = (
-            f"**New UPDATE available for [{ac_br}]:\n\nCHANGELOG:**\n`{changelog}`"
+            f"**🆕 update tersedia untuk [{ac_br}]:\n\nCHANGELOG:**\n`{changelog}`"
         )
         if len(changelog_str) > 4096:
-            await event.edit("`Changelog is too big, view the file to see it.`")
+            await event.edit("`Changelog terlalu besar, lihat melalui file untuk melihat nya.`")
             file = open("output.txt", "w+")
             file.write(changelog_str)
             file.close()
