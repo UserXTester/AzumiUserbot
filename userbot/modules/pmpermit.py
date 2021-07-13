@@ -23,12 +23,12 @@ from userbot.events import register
 
 # ========================= CONSTANTS ============================
 DEF_UNAPPROVED_MSG = (
-    "✧ 𝐖𝐄𝐋𝐂𝐎𝐌𝐄 𝐓𝐎 𝐏𝐑𝐈𝐕𝐀𝐓𝐄 𝐌𝐄𝐒𝐒𝐀𝐆𝐄 ✧\n"
-    "┈─────────────────────────────────┈\n"
-    "maaf, saat ini tuan saya sedang offline, dan tidak dapat menerima pesan anda,\n"
-    "silahkan tunggu sampai tuan saya kembali online, dan jangan lakukan spam.\n┈─────────────────────────────────┈\n"
+    "✧𝐖𝐄𝐋𝐂𝐎𝐌𝐄 𝐓𝐎 𝐏𝐑𝐈𝐕𝐀𝐓𝐄 𝐌𝐄𝐒𝐒𝐀𝐆𝐄✧\n"
+    "┈──────────────────────────┈\n"
+    "maaf, saat ini tuan saya sedang offline, dan tidak dapat menerima pesan anda.\n"
+    "silahkan tunggu sampai tuan saya kembali online, dan jangan lakukan spam.\n┈──────────────────────────┈\n"
     "➥ 𝐏𝐄𝐒𝐀𝐍 𝐎𝐓𝐎𝐌𝐀𝐓𝐈𝐒.\n"
-    "➥ 𝐁𝐘: [𝐕𝐄𝐄𝐙 𝐏𝐑𝐎𝐉𝐄𝐂𝐓](t.me/levinachannel)."
+    "➥ 𝐁𝐘: 𝐕𝐄𝐄𝐙 𝐏𝐑𝐎𝐉𝐄𝐂𝐓."
 )
 # =================================================================
 
