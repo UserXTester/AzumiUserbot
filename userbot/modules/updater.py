@@ -181,13 +181,13 @@ async def upstream(event):
 
     if changelog == "" and force_update is False:
         await event.edit(
-            f"\n`{UPDATER_ALIAS} sudah`  **versi terbaru**  `dengan`  **{UPSTREAM_REPO_BRANCH}**\n"
+            f"\n`{UPDATER_ALIAS}, userbot anda sudah`  **versi terbaru**  `dengan`  **{UPSTREAM_REPO_BRANCH}**\n"
         )
         return repo.__del__()
 
     if conf is None and force_update is False:
         changelog_str = (
-            f"**🆕 update tersedia untuk [{ac_br}]:\n\nCHANGELOG:**\n`{changelog}`"
+            f"**🆕 update tersedia untuk [{ac_br}]:\n\n🖥 CHANGELOG:**\n`{changelog}`"
         )
         if len(changelog_str) > 4096:
             await event.edit("`Changelog terlalu besar, lihat melalui file untuk melihat nya.`")
