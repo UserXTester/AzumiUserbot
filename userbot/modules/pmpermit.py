@@ -23,11 +23,12 @@ from userbot.events import register
 
 # ========================= CONSTANTS ============================
 DEF_UNAPPROVED_MSG = (
-    "Hey! Sorry, I haven't approved you to PM yet.\n"
-    "Please wait for me to look in.\n"
-    "Until then, please don't spam my PM...\n"
-    "Thank you for being patient.\n\n"
-    "*This is an automated message."
+    "✧ 𝐖𝐄𝐋𝐂𝐎𝐌𝐄 𝐓𝐎 𝐏𝐑𝐈𝐕𝐀𝐓𝐄 𝐌𝐄𝐒𝐒𝐀𝐆𝐄 ✧\n"
+    "┈─────────────────────────────────┈\n"
+    "maaf, saat ini tuan saya sedang offline, dan tidak dapat menerima pesan anda,\n"
+    "silahkan tunggu sampai tuan saya kembali online, dan jangan lakukan spam.\n┈─────────────────────────────────┈\n"
+    "➥ 𝐏𝐄𝐒𝐀𝐍 𝐎𝐓𝐎𝐌𝐀𝐓𝐈𝐒.\n"
+    "➥ 𝐁𝐘: [𝐕𝐄𝐄𝐙 𝐏𝐑𝐎𝐉𝐄𝐂𝐓](t.me/levinachannel)."
 )
 # =================================================================
 
@@ -86,9 +87,9 @@ async def permitpm(event):
 
             if COUNT_PM[event.chat_id] > 4:
                 await event.respond(
-                    "`You were spamming my PM, which I didn't like.`\n"
-                    "`I Wouldn't let you to chat me again until further notice`\n"
-                    "`Bye`"
+                    "`anda telah melakukan spam ke pm saya.`\n"
+                    "`saya menolak untuk berbincang dengan anda.`\n"
+                    "`anda diblokir`"
                 )
 
                 try:
@@ -194,7 +195,7 @@ async def notifon(non_event):
     await non_event.edit("`Notifications from unapproved PM's unmuted!`")
 
 
-@register(outgoing=True, pattern=r"^.approve$")
+@register(outgoing=True, pattern=r"^.a$")
 async def approvepm(apprvpm):
     """ For .approve command, give someone the permissions to PM you. """
     try:
@@ -243,7 +244,7 @@ async def approvepm(apprvpm):
         )
 
 
-@register(outgoing=True, pattern=r"^.disapprove$")
+@register(outgoing=True, pattern=r"^.da$")
 async def disapprovepm(disapprvpm):
     try:
         from userbot.modules.sql_helper.pm_permit_sql import dissprove
