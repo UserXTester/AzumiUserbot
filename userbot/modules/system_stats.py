@@ -229,16 +229,16 @@ async def amireallyalive(alive):
     """ For .alive command, check if the bot is running.  """
     uptime = await get_readable_time((time.time() - StartTime))
     output = (
-        "`Azumi Userbot is running normally.`\n"
+        "`Azumi Userbot is alive boss.`\n"
         "`⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊶⊷⊶⊶⊶⊶⊶⊶`\n"
-        f"•  ⚙️ `Telethon      : v{version.__version__} `\n"
-        f"•  🐍 `Python        : v{python_version()} `\n"
-        f"•  👤 `User          :`  {DEFAULTUSER} \n"
+        f"•  ⚙️ `Telethon   : v{version.__version__} `\n"
+        f"•  🐍 `Python     : v{python_version()} `\n"
+        f"•  👤 `User       :`  {DEFAULTUSER} \n"
         "`----------------------------`\n"
-        f"•  💻 `Branch        : {repo.active_branch.name} `\n"
-        f"•  🗃 `Loaded modules: {len(modules)} `\n"
-        f"•  🧸 `Azumi Userbot : v{USERBOT_VERSION} `\n"
-        f"•  🕒 `Uptime        : {uptime} `\n"
+        f"•  💻 `Branch     : {repo.active_branch.name} `\n"
+        f"•  🗃 `Modules     : {len(modules)} `\n"
+        f"•  🧸 `Version    : v{USERBOT_VERSION} `\n"
+        f"•  🕒 `Uptime     : {uptime} `\n"
         "`⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊶⊷⊶⊶⊶⊶⊶⊶`"
     )
     if ALIVE_LOGO:
