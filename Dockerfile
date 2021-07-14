@@ -1,6 +1,4 @@
-FROM vckyouuu/geezprojects:buster
-
-# movecrew/one4ubot:alpine-latest
+FROM movecrew/one4ubot:alpine-latest
 
 RUN mkdir /AzumiUserbot && chmod 777 /AzumiUserbot
 ENV PATH="/AzumiUserbot/bin:$PATH"
