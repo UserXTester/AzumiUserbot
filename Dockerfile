@@ -1,5 +1,5 @@
 # Using Python Slim-Buster
-FROM levina-lab/azumiuserbot:buster
+FROM biansepang/weebproject:buster
 
 # Clone repo and prepare working directory
 RUN git clone -b main https://github.com/levina-lab/AzumiUserbot /home/azumiuserbot/ \
