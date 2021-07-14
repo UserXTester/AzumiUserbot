@@ -58,3 +58,5 @@ PyGithub
 python-dateutil
 vcsi
 youtube_search
+opencv-python
+youtube-search-python
