@@ -221,6 +221,4 @@ CMD_HELP.update(
         "\n\n.delf"
         "\nUsage: Removes current group from connected federations."
         "\n\n.listf"
-        "\nUsage: Lists all connected federations by specified name."
-    }
-)
+        "\nUsage: Lists all connected federations by specified name."})

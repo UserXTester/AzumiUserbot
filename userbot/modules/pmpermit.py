@@ -28,8 +28,7 @@ DEF_UNAPPROVED_MSG = (
     "maaf, saat ini tuan saya sedang offline, dan tidak dapat menerima pesan anda.\n"
     "silahkan tunggu sampai tuan saya kembali online, dan jangan lakukan spam.\n┈──────────────────────────┈\n"
     "➥ 𝐏𝐄𝐒𝐀𝐍 𝐎𝐓𝐎𝐌𝐀𝐓𝐈𝐒.\n"
-    "➥ 𝐁𝐘: 𝐕𝐄𝐄𝐙 𝐏𝐑𝐎𝐉𝐄𝐂𝐓."
-)
+    "➥ 𝐁𝐘: 𝐕𝐄𝐄𝐙 𝐏𝐑𝐎𝐉𝐄𝐂𝐓.")
 # =================================================================
 
 

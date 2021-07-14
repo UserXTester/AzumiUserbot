@@ -34,8 +34,9 @@ def getmusicvideo(cat):
         "User-Agent": "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
     }
     html = requests.get(
-        "https://www.youtube.com/results?search_query=" + search, headers=headers
-    ).text
+        "https://www.youtube.com/results?search_query=" +
+        search,
+        headers=headers).text
     soup = BeautifulSoup(html, "html.parser")
     for link in soup.find_all("a"):
         if "/watch?v=" in link.get("href"):
@@ -225,19 +226,15 @@ async def _(event):
     os.system("rm -rf *.webm")
 
 
-CMD_HELP.update(
-    {
-        "getmusic": ".songn <Artist - Song Title>"
-        "\nUsage: Download music by name (@WooMaiBot)"
-        "\n\n.songl <Spotify/Deezer Link>"
-        "\nUsage: Download music by link (@MusicsHunterBot)"
-        "\n\n.songf <Artist - Song Title>"
-        "\nUsage: Download music by name (@SpotifyMusicDownloaderBot)"
-        "\n\n.songn now"
-        "\nUsage: Download current LastFM scrobble with @WooMaiBot"
-        "\n\n.songf now"
-        "\nUsage: Download current LastFM scrobble with @SpotifyMusicDownloaderBot"
-        "\n\n.vsong <Artist - Song Title>"
-        "\nUsage: Finding and uploading videoclip.\n"
-    }
-)
+CMD_HELP.update({"getmusic": ".songn <Artist - Song Title>"
+                 "\nUsage: Download music by name (@WooMaiBot)"
+                 "\n\n.songl <Spotify/Deezer Link>"
+                 "\nUsage: Download music by link (@MusicsHunterBot)"
+                 "\n\n.songf <Artist - Song Title>"
+                 "\nUsage: Download music by name (@SpotifyMusicDownloaderBot)"
+                 "\n\n.songn now"
+                 "\nUsage: Download current LastFM scrobble with @WooMaiBot"
+                 "\n\n.songf now"
+                 "\nUsage: Download current LastFM scrobble with @SpotifyMusicDownloaderBot"
+                 "\n\n.vsong <Artist - Song Title>"
+                 "\nUsage: Finding and uploading videoclip.\n"})

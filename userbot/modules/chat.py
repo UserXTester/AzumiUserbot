@@ -41,9 +41,8 @@ async def permalink(mention):
     if custom:
         await mention.edit(f"[{custom}](tg://user?id={user.id})")
     else:
-        tag = (
-            user.first_name.replace("\u2060", "") if user.first_name else user.username
-        )
+        tag = (user.first_name.replace("\u2060", "")
+               if user.first_name else user.username)
         await mention.edit(f"[{tag}](tg://user?id={user.id})")
 
 

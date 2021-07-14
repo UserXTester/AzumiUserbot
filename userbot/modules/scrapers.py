@@ -45,7 +45,7 @@ from youtube_search import YoutubeSearch
 
 from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, WOLFRAM_ID, CHROME_DRIVER, GOOGLE_CHROME_BIN
 from userbot.events import register
-from userbot.utils import chrome, googleimagesdownload, progress
+from userbot.utils import googleimagesdownload, progress
 
 CARBONLANG = "auto"
 TTS_LANG = "en"
@@ -444,8 +444,7 @@ async def moni(event):
             currency_from = input_sgra[1].upper()
             currency_to = input_sgra[2].upper()
             request_url = "https://api.exchangeratesapi.io/latest?base={}".format(
-                currency_from
-            )
+                currency_from)
             current_response = get(request_url).json()
             if currency_to in current_response["rates"]:
                 current_rate = float(current_response["rates"][currency_to])
@@ -638,14 +637,16 @@ async def imdb(e):
         movie_name = e.pattern_match.group(1)
         remove_space = movie_name.split(" ")
         final_name = "+".join(remove_space)
-        page = get("https://www.imdb.com/find?ref_=nv_sr_fn&q=" + final_name + "&s=all")
+        page = get(
+            "https://www.imdb.com/find?ref_=nv_sr_fn&q=" +
+            final_name +
+            "&s=all")
         str(page.status_code)
         soup = BeautifulSoup(page.content, "lxml")
         odds = soup.findAll("tr", "odd")
         mov_title = odds[0].findNext("td").findNext("td").text
-        mov_link = (
-            "http://www.imdb.com/" + odds[0].findNext("td").findNext("td").a["href"]
-        )
+        mov_link = ("http://www.imdb.com/" +
+                    odds[0].findNext("td").findNext("td").a["href"])
         page1 = get(mov_link)
         soup = BeautifulSoup(page1.content, "lxml")
         if soup.find("div", "poster"):
@@ -679,7 +680,8 @@ async def imdb(e):
             actors.pop()
             stars = actors[0] + "," + actors[1] + "," + actors[2]
         if soup.find("div", "inline canwrap"):
-            story_line = soup.find("div", "inline canwrap").findAll("p")[0].text
+            story_line = soup.find(
+                "div", "inline canwrap").findAll("p")[0].text
         else:
             story_line = "Not available"
         info = soup.findAll("div", "txt-block")
@@ -753,7 +755,7 @@ async def translateme(trans):
 
     try:
         source_lan = translator.detect(deEmojify(message))[1].title()
-    except:
+    except BaseException:
         source_lan = "(Google didn't provide this info)"
 
     reply_text = f"From: **{source_lan}**\nTo: **{LANGUAGES.get(TRT_LANG).title()}**\n\n{reply_text}"
@@ -814,7 +816,10 @@ async def yt_search(video_q):
     await video_q.edit("`Processing...`")
 
     try:
-        results = json.loads(YoutubeSearch(query, max_results=counter).to_json())
+        results = json.loads(
+            YoutubeSearch(
+                query,
+                max_results=counter).to_json())
     except KeyError:
         return await video_q.edit(
             "`Youtube Search gone retard.\nCan't search this query!`"
@@ -1027,7 +1032,8 @@ CMD_HELP.update(
         "\nCan specify the number of results needed (default is 5)."
     }
 )
-CMD_HELP.update({"imdb": ".imdb <movie-name>\nShows movie info and other stuff."})
+CMD_HELP.update(
+    {"imdb": ".imdb <movie-name>\nShows movie info and other stuff."})
 CMD_HELP.update(
     {
         "rip": ".ripaudio <url> or ripvideo <url>\

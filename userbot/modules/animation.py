@@ -84,8 +84,8 @@ async def typewriter(typew):
                      "\n╱┃┃┃┃╭╮┃┃┃┃╭╮┃┃"
                      "\n╭╯╰╯┃╰╯┃╰╯┃╰╯┃╰╮"
                      "\n╰━━━┻━━┻━━┻━━┻━╯")
-    
-    
+
+
 @register(outgoing=True, pattern='^.hai(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)

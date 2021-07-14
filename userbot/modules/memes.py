@@ -857,7 +857,10 @@ async def stretch(stret):
         return
 
     count = randint(3, 10)
-    reply_text = sub(r"([aeiouAEIOUａｅｉｏｕＡＥＩＯＵаеиоуюяыэё])", (r"\1" * count), message)
+    reply_text = sub(
+        r"([aeiouAEIOUａｅｉｏｕＡＥＩＯＵаеиоуюяыэё])",
+        (r"\1" * count),
+        message)
     await stret.edit(reply_text)
 
 
@@ -1204,7 +1207,8 @@ async def typewriter(typew):
 
 @register(outgoing=True, pattern="^.fail$")
 async def fail(faill):
-    if not faill.text[0].isalpha() and faill.text[0] not in ("/", "#", "@", "!"):
+    if not faill.text[0].isalpha() and faill.text[0] not in (
+            "/", "#", "@", "!"):
         await faill.edit(
             "`\n▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄ `"
             "`\n████▌▄▌▄▐▐▌█████ `"
@@ -1236,7 +1240,8 @@ async def lool(lul):
 
 @register(outgoing=True, pattern="^.stfu$")
 async def stfu(shutup):
-    if not shutup.text[0].isalpha() and shutup.text[0] not in ("/", "#", "@", "!"):
+    if not shutup.text[0].isalpha() and shutup.text[0] not in (
+            "/", "#", "@", "!"):
         await shutup.edit(
             "`\n█████████████████████████████████`"
             "`\n██▀▀▀▀████▀▀▀▀████▀▀▀▀▀███▀▀██▀▀█`"
@@ -1252,7 +1257,8 @@ async def stfu(shutup):
 
 @register(outgoing=True, pattern="^.gtfo$")
 async def gtfo(getout):
-    if not getout.text[0].isalpha() and getout.text[0] not in ("/", "#", "@", "!"):
+    if not getout.text[0].isalpha() and getout.text[0] not in (
+            "/", "#", "@", "!"):
         await getout.edit(
             "`\n███████████████████████████████ `"
             "`\n█▀▀▀▀▀▀▀█▀▀▀▀▀▀█▀▀▀▀▀▀▀█▀▀▀▀▀▀█ `"
@@ -1282,7 +1288,8 @@ async def nih(rose):
 
 @register(outgoing=True, pattern="^.fag$")
 async def ugay(faggot):
-    if not faggot.text[0].isalpha() and faggot.text[0] not in ("/", "#", "@", "!"):
+    if not faggot.text[0].isalpha() and faggot.text[0] not in (
+            "/", "#", "@", "!"):
         await faggot.edit(
             "`\n█████████`"
             "`\n█▄█████▄█`"
@@ -1296,13 +1303,15 @@ async def ugay(faggot):
 
 @register(outgoing=True, pattern="^.taco$")
 async def taco(tacoo):
-    if not tacoo.text[0].isalpha() and tacoo.text[0] not in ("/", "#", "@", "!"):
+    if not tacoo.text[0].isalpha() and tacoo.text[0] not in (
+            "/", "#", "@", "!"):
         await tacoo.edit(r"\n{\__/}" "\n(●_●)" "\n( >🌮 Want a taco?")
 
 
 @register(outgoing=True, pattern="^.paw$")
 async def paw(pawed):
-    if not pawed.text[0].isalpha() and pawed.text[0] not in ("/", "#", "@", "!"):
+    if not pawed.text[0].isalpha() and pawed.text[0] not in (
+            "/", "#", "@", "!"):
         await pawed.edit("`(=ↀωↀ=)")
 
 
@@ -1336,7 +1345,8 @@ async def gay(ugay):
 
 @register(outgoing=True, pattern="^.bot$")
 async def bot(robot):
-    if not robot.text[0].isalpha() and robot.text[0] not in ("/", "#", "@", "!"):
+    if not robot.text[0].isalpha() and robot.text[0] not in (
+            "/", "#", "@", "!"):
         await robot.edit(
             "` \n   ╲╲╭━━━━╮ \n╭╮┃▆┈┈▆┃╭╮ \n┃╰┫▽▽▽┣╯┃ \n╰━┫△△△┣━╯`"
             "`\n╲╲┃┈┈┈┈┃  \n╲╲┃┈┏┓┈┃ `"
@@ -1355,7 +1365,8 @@ async def hey(heyo):
 
 @register(outgoing=True, pattern="^.nou$")
 async def nou(noway):
-    if not noway.text[0].isalpha() and noway.text[0] not in ("/", "#", "@", "!"):
+    if not noway.text[0].isalpha() and noway.text[0] not in (
+            "/", "#", "@", "!"):
         await noway.edit(
             "`\n┈╭╮╭╮\n┈┃┃┃┃\n╭┻┗┻┗╮`"
             "`\n┃┈▋┈▋┃\n┃┈╭▋━╮━╮\n┃┈┈╭╰╯╰╯╮`"

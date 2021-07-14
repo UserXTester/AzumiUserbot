@@ -42,8 +42,7 @@ async def github(event):
                 f"URL: {url}\n"
                 f"Company: `{company}`\n"
                 f"Created at: `{created_at}`\n"
-                f"More info : [Here](https://api.github.com/users/{username}/events/public)"
-            )
+                f"More info : [Here](https://api.github.com/users/{username}/events/public)")
 
             if not result.get("repos_url", None):
                 return await event.edit(REPLY)
@@ -120,8 +119,10 @@ async def git_commit(file_name, mone):
         print(file_name)
         try:
             repo.create_file(
-                file_name, "Uploaded New Plugin", commit_data, branch="sql-extended"
-            )
+                file_name,
+                "Uploaded New Plugin",
+                commit_data,
+                branch="sql-extended")
             print("Committed File")
             ccess = GIT_REPO_NAME
             ccess = ccess.strip()

@@ -72,8 +72,10 @@ async def psu(event):
     softw += f"`Boot Time: {bt.day}/{bt.month}/{bt.year}  {bt.hour}:{bt.minute}:{bt.second}`\n"
     # CPU Cores
     cpuu = "**CPU Info**\n"
-    cpuu += "`Physical cores   : " + str(psutil.cpu_count(logical=False)) + "`\n"
-    cpuu += "`Total cores      : " + str(psutil.cpu_count(logical=True)) + "`\n"
+    cpuu += "`Physical cores   : " + \
+        str(psutil.cpu_count(logical=False)) + "`\n"
+    cpuu += "`Total cores      : " + \
+        str(psutil.cpu_count(logical=True)) + "`\n"
     # CPU frequencies
     cpufreq = psutil.cpu_freq()
     cpuu += f"`Max Frequency    : {cpufreq.max:.2f}Mhz`\n"
@@ -133,7 +135,8 @@ async def sysdetails(sysd):
             )
 
             stdout, stderr = await fetch.communicate()
-            result = str(stdout.decode().strip()) + str(stderr.decode().strip())
+            result = str(stdout.decode().strip()) + \
+                str(stderr.decode().strip())
 
             await sysd.edit("`" + result + "`")
         except FileNotFoundError:
@@ -143,7 +146,8 @@ async def sysdetails(sysd):
 @register(outgoing=True, pattern="^.botver$")
 async def bot_ver(event):
     """ For .botver command, get the bot version. """
-    if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
+    if not event.text[0].isalpha() and event.text[0] not in (
+            "/", "#", "@", "!"):
         if which("git") is not None:
             ver = await asyncrunapp(
                 "git",
@@ -154,7 +158,8 @@ async def bot_ver(event):
                 stderr=asyncPIPE,
             )
             stdout, stderr = await ver.communicate()
-            verout = str(stdout.decode().strip()) + str(stderr.decode().strip())
+            verout = str(stdout.decode().strip()) + \
+                str(stderr.decode().strip())
 
             rev = await asyncrunapp(
                 "git",
@@ -165,7 +170,8 @@ async def bot_ver(event):
                 stderr=asyncPIPE,
             )
             stdout, stderr = await rev.communicate()
-            revout = str(stdout.decode().strip()) + str(stderr.decode().strip())
+            revout = str(stdout.decode().strip()) + \
+                str(stderr.decode().strip())
 
             await event.edit(
                 "`Userbot Version: " f"{verout}" "` \n" "`Revision: " f"{revout}" "`"
@@ -192,7 +198,8 @@ async def pipcheck(pip):
             )
 
             stdout, stderr = await pipc.communicate()
-            pipout = str(stdout.decode().strip()) + str(stderr.decode().strip())
+            pipout = str(stdout.decode().strip()) + \
+                str(stderr.decode().strip())
 
             if pipout:
                 if len(pipout) > 4096:

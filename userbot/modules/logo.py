@@ -74,9 +74,8 @@ async def logo_gen(event):
     )
     x = (image_width - w) / 2
     y = (image_height - h) / 2
-    draw.text(
-        (x, y), name, font=font, fill="white", stroke_width=strke, stroke_fill="black"
-    )
+    draw.text((x, y), name, font=font, fill="white",
+              stroke_width=strke, stroke_fill="black")
     flnme = f"azumi.png"
     img.save(flnme, "png")
     await xx.edit("`SELESAI !`")
@@ -94,10 +93,10 @@ async def logo_gen(event):
     if os.path.exists(font_):
         if not font_.startswith("resources/fonts"):
             os.remove(font_)
-            
-            
+
+
 CMD_HELP.update({
-  "logo":
-  "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.logo` <teks>\
+    "logo":
+    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.logo` <teks>\
  \nUsage : Untuk membuat logo dari teks"
 })
