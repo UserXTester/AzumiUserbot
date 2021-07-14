@@ -127,7 +127,7 @@ async def dyno_usage(dyno):
     """
     Get your account Dyno Usage
     """
-    await dyno.edit("`Getting Information...`")
+    await dyno.edit("`mendapatkan informasi...`")
     useragent = (
         "Mozilla/5.0 (Linux; Android 10; SM-G975F) "
         "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -146,7 +146,7 @@ async def dyno_usage(dyno):
                 await dyno.client.send_message(
                     dyno.chat_id, f"`{r.reason}`", reply_to=dyno.id
                 )
-                await dyno.edit("`Can't get information...`")
+                await dyno.edit("`gagal mendapatkan informasi...`")
                 return False
             result = await r.json()
             quota = result["account_quota"]
@@ -174,13 +174,13 @@ async def dyno_usage(dyno):
             AppMinutes = math.floor(AppQuotaUsed % 60)
 
             await dyno.edit(
-                "**Dyno Usage**:\n\n"
-                f" -> `Dyno usage for`  **{app.name}**:\n"
-                f"     •  **{AppHours} hour(s), "
-                f"{AppMinutes} minute(s)  -  {AppPercentage}%**"
-                "\n-------------------------------------------------------------\n"
-                " -> `Dyno hours quota remaining this month`:\n"
-                f"     •  **{hours} hour(s), {minutes} minute(s)  "
+                "**╭┈────────────────┈**:\n────💰 DYNO USAGE 💰────\n"
+                f"⫸ `Dyno terpakai untuk`  **{app.name}**:\n"
+                f"     •  **{AppHours} jam. "
+                f"{AppMinutes} menit  -  {AppPercentage}%**"
+                "\n┈──────────────────┈\n"
+                " ⫸ `Dyno tersisa bulan ini`:\n"
+                f"     •  **{hours} jam. {minutes} menit  "
                 f"-  {percentage}%**"
             )
             return True
