@@ -13,7 +13,7 @@ from PIL import Image, ImageDraw, ImageFont
 from telethon.tl.types import InputMessagesFilterPhotos
 
 
-@register(pattern="logo ?(.*)")
+@register(pattern="^.logo(?: |$)(.*)")
 async def logo_gen(event):
     xx = await eor(event, get_string("com_1"))
     name = event.pattern_match.group(1)
@@ -32,7 +32,7 @@ async def logo_gen(event):
                 bg_ = await temp.download_media()
     else:
         pics = []
-        async for i in azumi.iter_messages(
+        async for i in azumiuserbot.iter_messages(
             "@SakuraLogos", filter=InputMessagesFilterPhotos
         ):
             pics.append(i)
@@ -42,7 +42,7 @@ async def logo_gen(event):
         font_ = random.choice(fpath_)
     if not bg_:
         pics = []
-        async for i in azumi.iter_messages(
+        async for i in azumiuserbot.iter_messages(
             "@SakuraLogos", filter=InputMessagesFilterPhotos
         ):
             pics.append(i)
