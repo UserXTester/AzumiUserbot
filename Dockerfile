@@ -1,22 +1,16 @@
-FROM movecrew/one4ubot:alpine-latest
+# Using Python Slim-Buster
+FROM levina-lab/azumiuserbot:buster
 
-RUN mkdir /AzumiUserbot && chmod 777 /AzumiUserbot
-ENV PATH="/AzumiUserbot/bin:$PATH"
-WORKDIR /AzumiUserbot
+# Clone repo and prepare working directory
+RUN git clone -b main https://github.com/levina-lab/AzumiUserbot /home/azumiuserbot/ \
+    && chmod 777 /home/azumiuserbot \
+    && mkdir /home/azumiuserbot/bin/
 
-RUN git clone https://github.com/levina-lab/AzumiUserbot -b main /AzumiUserbot
+# Copies config.env (if exists)
+COPY ./sample_config.env ./config.env* /home/azumiuserbot/
 
-#
-# Copies session and config(if it exists)
-#
-COPY ./sample_config.env ./userbot.session* ./config.env* /AzumiUserbot/
+# Setup Working Directory
+WORKDIR /home/azumiuserbot/
 
-#
-# Make open port TCP
-#
-EXPOSE 80 443
-
-#
 # Finalization
-#
 CMD ["python3","-m","userbot"]
