@@ -1,4 +1,4 @@
-name: FailedChecker
+name: FailCheck
 
 on: [push, pull_request]
 
@@ -9,7 +9,7 @@ jobs:
     strategy:
       max-parallel: 5
       matrix:
-        python-version: [3.8]
+        python-version: [3.9]
 
     steps:
     - uses: actions/checkout@v1
@@ -25,7 +25,6 @@ jobs:
         pip install flake8 flake8-print flake8-quotes
     - name: Check for showstoppers
       run: |
-        # stop the build if there are Python syntax errors
         flake8 . --count --select=E999 --show-source --statistics
   shellcheck:
 
