@@ -86,7 +86,7 @@ async def typewriter(typew):
                      "\n╰━━━┻━━┻━━┻━━┻━╯")
     
     
-@register(outgoing=True, pattern='^.hi(?: |$)(.*)')
+@register(outgoing=True, pattern='^.hai(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("\n🌺✨✨🌺✨🌺🌺🌺"
