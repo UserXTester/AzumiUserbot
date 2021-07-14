@@ -12,8 +12,6 @@ from userbot.events import register
 from PIL import Image, ImageDraw, ImageFont
 from telethon.tl.types import InputMessagesFilterPhotos
 
-from . import *
-
 
 @register(pattern="logo ?(.*)")
 async def logo_gen(event):
