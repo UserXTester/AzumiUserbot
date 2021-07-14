@@ -57,4 +57,5 @@ wikipedia
 PyGithub
 python-dateutil
 vcsi
+cv2
 youtube_search
