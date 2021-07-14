@@ -32,20 +32,20 @@ async def logo_gen(event):
                 bg_ = await temp.download_media()
     else:
         pics = []
-        async for i in azumiuserbot.iter_messages(
+        async for (.) in azumiuserbot.iter_messages(
             "@SakuraLogos", filter=InputMessagesFilterPhotos
         ):
-            pics.append(i)
+            pics.append(.)
         id_ = random.choice(pics)
         bg_ = await id_.download_media()
         fpath_ = glob.glob("resources/fonts/*")
         font_ = random.choice(fpath_)
     if not bg_:
         pics = []
-        async for i in azumiuserbot.iter_messages(
+        async for . in azumiuserbot.iter_messages(
             "@SakuraLogos", filter=InputMessagesFilterPhotos
         ):
-            pics.append(i)
+            pics.append(.)
         id_ = random.choice(pics)
         bg_ = await id_.download_media()
     if not font_:
