@@ -203,6 +203,18 @@ USR_TOKEN = os.environ.get("USR_TOKEN_UPTOBOX", None)
 BOT_TOKEN = os.environ.get("BOT_TOKEN") or None
 BOT_USERNAME = os.environ.get("BOT_USERNAME") or None
 
+# Init Mongo
+MONGOCLIENT = MongoClient(MONGO_URI, 27017, serverSelectionTimeoutMS=1)
+MONGO = MONGOCLIENT.userbot
+
+
+def is_mongo_alive():
+    try:
+        MONGOCLIENT.server_info()
+    except BaseException:
+        return False
+    return True
+
 # Setting Up CloudMail.ru and MEGA.nz extractor binaries,
 # and giving them correct perms to work properly.
 if not os.path.exists("bin"):
@@ -238,6 +250,16 @@ async def check_botlog_chatid():
             "group. Check if you typed the Chat ID correctly.")
         quit(1)
 
+        
+with bot:
+    try:
+        bot.loop.run_until_complete(check_botlog_chatid())
+    except BaseException:
+        LOGS.info(
+            "BOTLOG_CHATID environment variable isn't a "
+            "valid entity. Check your environment variables/config.env file.")
+        quit(1)
+        
 
 async def check_alive():
     await bot.send_message(BOTLOG_CHATID, "```𝘊𝘰𝘯𝘨𝘳𝘢𝘵𝘴𝘴... 🦊𝘼𝙯𝙪𝙢𝙞 𝙐𝙨𝙚𝙧𝙗𝙤𝙩🦊 Has Been Active!!```")
@@ -340,7 +362,7 @@ with bot:
                     "`You cannot send inline results in this chat (caused by SendInlineBotResultRequest)`"
                 )
 
-        geezlogo = INLINE_PIC
+        azumilogo = INLINE_PIC
         plugins = CMD_HELP
         vr = BOT_VER
 
@@ -381,7 +403,7 @@ with bot:
                     "@Geez-Project"):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = builder.photo(
-                    file=geezlogo,
+                    file=azumilogo,
                     link_preview=False,
                     text=f"🦊𝘼𝙯𝙪𝙢𝙞 𝙐𝙨𝙚𝙧𝙗𝙤𝙩🦊\n\n🦊**Owner : {DEFAULTUSER}**\n\n🦊 **Bot Ver :** `4.0`\n🦊 **𝗠odules :** `{len(plugins)}`\n\n🦊 **Dev : LEVINA **".format(
                         len(dugmeler),
@@ -436,7 +458,7 @@ with bot:
             if event.query.user_id == uid:  # @Geez-Project
                 # https://t.me/TelethonChat/115200
                 await event.edit(
-                    file=geezlogo,
+                    file=azumilogo,
                     link_preview=True,
                     buttons=[
                         [
@@ -449,7 +471,7 @@ with bot:
                     ]
                 )
 
-        @ tgbot.on(
+         @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
                 data=re.compile(rb"helpme_prev\((.+?)\)")
             )
