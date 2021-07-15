@@ -239,6 +239,10 @@ async def check_botlog_chatid():
         quit(1)
 
 
+async def check_alive():
+    await bot.send_message(BOTLOG_CHATID, "```𝘊𝘰𝘯𝘨𝘳𝘢𝘵𝘴𝘴... 🦊𝘼𝙯𝙪𝙢𝙞 𝙐𝙨𝙚𝙧𝙗𝙤𝙩🦊 Has Been Active!!```")
+    return
+
 with bot:
     try:
         bot.loop.run_until_complete(check_botlog_chatid())
