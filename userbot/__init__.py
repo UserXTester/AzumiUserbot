@@ -203,6 +203,9 @@ USR_TOKEN = os.environ.get("USR_TOKEN_UPTOBOX", None)
 BOT_TOKEN = os.environ.get("BOT_TOKEN") or None
 BOT_USERNAME = os.environ.get("BOT_USERNAME") or None
 
+# For MONGO based DataBase
+MONGO_URI = os.environ.get("MONGO_URI", None)
+
 # Init Mongo
 MONGOCLIENT = MongoClient(MONGO_URI, 27017, serverSelectionTimeoutMS=1)
 MONGO = MONGOCLIENT.userbot
