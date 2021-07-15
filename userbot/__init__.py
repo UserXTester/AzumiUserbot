@@ -404,7 +404,7 @@ with bot:
             result = None
             query = event.text
             if event.query.user_id == uid and query.startswith(
-                    "@Geez-Project"):
+                    "@gcsupportbots"):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = builder.photo(
                     file=azumilogo,
