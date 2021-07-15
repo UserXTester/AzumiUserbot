@@ -60,3 +60,4 @@ vcsi
 youtube_search
 opencv-python
 youtube-search-python
+validators
