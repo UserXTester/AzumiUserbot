@@ -236,17 +236,16 @@ async def amireallyalive(alive):
     """ For .alive command, check if the bot is running.  """
     uptime = await get_readable_time((time.time() - StartTime))
     output = (
-        "`Azumi Userbot is alive boss.`\n"
-        "`⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊶⊷⊶⊶⊶⊶⊶⊶`\n"
-        f"•  ⚙️ `Telethon  : v{version.__version__} `\n"
-        f"•  🐍 `Python    : v{python_version()} `\n"
-        f"•  🙎🏻 `User      :`  {DEFAULTUSER} \n"
-        "`----------------------------`\n"
-        f"•  🧩 `Branch    : {repo.active_branch.name} `\n"
-        f"•  📚 `Modules   : {len(modules)} `\n"
-        f"•  🦊 `Version   : v{USERBOT_VERSION} `\n"
-        f"•  🕒 `Uptime    : {uptime} `\n"
-        "`⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷⊶⊷⊶⊶⊶⊶⊶⊶`\n"
+        "`🦊 Azumi Userbot Is Running 🦊`\n"
+        "`╭━─━─━─━─━─━─━─━─━─━─━─━─━─━─━─━╮`\n"
+        f"❍  ⚙️ `Telethon  : v{version.__version__} `\n"
+        f"❍  🐍 `Python    : v{python_version()} `\n"
+        f"❍  🙎🏻 `User      :`  {DEFAULTUSER} \n\n"
+        f"❍  🧩 `Branch    : {repo.active_branch.name} `\n"
+        f"❍  📚 `Modules   : {len(modules)} `\n"
+        f"❍  🦊 `Version   : v{USERBOT_VERSION} `\n"
+        f"❍  🕒 `Uptime    : {uptime} `\n"
+        "`╰━─━─━─━─━─━─━─━─━─━─━─━─━─━─━─━╯`\n"
         "` `[𝐑𝐄𝐏𝐎](github.com/levina-lab/AzumiUserbot)` `|` `[𝐆𝐑𝐎𝐔𝐏](t.me/gcsupportbots)` `|` `[𝐎𝐖𝐍𝐄𝐑](t.me/dlwrml)` `"
     )
     if ALIVE_LOGO:
