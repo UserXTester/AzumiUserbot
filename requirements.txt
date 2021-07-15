@@ -27,6 +27,7 @@ humanize
 jikanpy
 lxml
 lyricsgenius
+lyrics_extractor
 oauth2client
 pendulum
 Pillow
