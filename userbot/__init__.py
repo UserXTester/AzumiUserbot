@@ -215,6 +215,7 @@ def is_mongo_alive():
         return False
     return True
 
+
 # Setting Up CloudMail.ru and MEGA.nz extractor binaries,
 # and giving them correct perms to work properly.
 if not os.path.exists("bin"):
@@ -250,7 +251,7 @@ async def check_botlog_chatid():
             "group. Check if you typed the Chat ID correctly.")
         quit(1)
 
-        
+
 with bot:
     try:
         bot.loop.run_until_complete(check_botlog_chatid())
@@ -259,7 +260,7 @@ with bot:
             "BOTLOG_CHATID environment variable isn't a "
             "valid entity. Check your environment variables/config.env file.")
         quit(1)
-        
+
 
 async def check_alive():
     await bot.send_message(BOTLOG_CHATID, "```𝘊𝘰𝘯𝘨𝘳𝘢𝘵𝘴𝘴... 🦊𝘼𝙯𝙪𝙢𝙞 𝙐𝙨𝙚𝙧𝙗𝙤𝙩🦊 Has Been Active!!```")
