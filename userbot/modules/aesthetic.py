@@ -26,7 +26,7 @@ async def _(event):
 
 
 CMD_HELP.update({
-    "aeshtetic":
+    "aesthetic":
     "𝘾𝙤𝙢𝙢𝙖𝙣𝙙`.ae <teks>`\
     \n↳ : Mengubah fonts teks"
 })
