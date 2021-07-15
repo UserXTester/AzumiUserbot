@@ -115,6 +115,7 @@ def user_full_name(user):
     full_name = ' '.join(names)
     return full_name
 
+
 CMD_HELP.update(
     {
         "statistik": ".stats\
