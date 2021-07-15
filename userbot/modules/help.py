@@ -25,6 +25,6 @@ async def help(event):
             string += "`\t⭐️\t "
         await event.edit(
             f"{string}"
-            "\n\n💡 Untuk melihat detail & penjelasan setiap modul gunakan perintah help.\
+            "\n\n📚 Untuk melihat detail & penjelasan setiap modul gunakan perintah help.\
                         \n\n**Contoh:** `.help` <nama modul>"
         )
