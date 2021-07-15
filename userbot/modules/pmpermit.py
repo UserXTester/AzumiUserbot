@@ -386,20 +386,20 @@ async def add_pmsg(cust_msg):
 CMD_HELP.update(
     {
         "pmpermit": "\
-.approve\
-\nUsage: Approves the mentioned/replied person to PM.\
-\n\n.disapprove\
-\nUsage: Disapproves the mentioned/replied person to PM.\
+.a\
+\nUsage: Setujui pesan dari orang yang pm kamu.\
+\n\n.da\
+\nUsage: Tolak pesan dari orang yang pm kamu.\
 \n\n.block\
-\nUsage: Blocks the person.\
+\nUsage: Blokir orang yang pm kamu.\
 \n\n.unblock\
-\nUsage: Unblocks the person so they can PM you.\
+\nUsage: Unblokir orang yang kamu blokir.\
 \n\n.notifoff\
-\nUsage: Clears/Disables any notifications of unapproved PMs.\
+\nUsage: Matikan notifikasi saat ada orang yang pm kamu.\
 \n\n.notifon\
-\nUsage: Allows notifications for unapproved PMs.\
+\nUsage: Nyalakan notifikasi saat ada orang yang pm kamu.\
 \n\n.set pm_msg <reply to msg>\
-\nUsage: Set your own Unapproved message\
+\nUsage: Atur pesan untuk pm\
 \n\n.get pm_msg\
 \nUsage: Get your current Unapproved message\
 \n\n.reset pm_msg\
