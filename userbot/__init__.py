@@ -5,23 +5,35 @@
 #
 """ Userbot initialization. """
 
+import logging
 import os
 import re
 import time
 from sys import version_info
 from logging import basicConfig, getLogger, INFO, DEBUG
 from distutils.util import strtobool as sb
+from math import ceil
 
 from pylast import LastFMNetwork, md5
 from pySmartDL import SmartDL
+from pymongo import MongoClient
+from datetime import datetime
 from dotenv import load_dotenv
 from requests import get
-from telethon import TelegramClient
+from telethon import TelegramClient, custom, events
 from telethon.sessions import StringSession
+from telethon import Button, events, functions, types
+from telethon.utils import get_display_name
 
 load_dotenv("config.env")
 
 StartTime = time.time()
+
+CMD_LIST = {}
+# for later purposes
+CMD_HELP = {}
+INT_PLUG = ""
+LOAD_PLUG = {}
 
 # Bot Logs setup:
 CONSOLE_LOGGER_VERBOSE = sb(os.environ.get(
@@ -127,10 +139,13 @@ ANTI_SPAMBOT = sb(os.environ.get("ANTI_SPAMBOT") or "False")
 ANTI_SPAMBOT_SHOUT = sb(os.environ.get("ANTI_SPAMBOT_SHOUT") or "False")
 
 # Default .alive name
-ALIVE_NAME = os.environ.get("ALIVE_NAME") or None
+ALIVE_NAME = os.environ.get("ALIVE_NAME") or "Azumi"
 
 # Default .alive logo
-ALIVE_LOGO = os.environ.get("ALIVE_LOGO") or None
+ALIVE_LOGO = os.environ.get("ALIVE_LOGO") or "https://telegra.ph/file/a95ae386a01cee3c0892e.png"
+
+# For default inline pic
+INLINE_PIC = os.environ.get("INLINE_PIC") or "https://telegra.ph/file/787aeeae0398c8b46c5a5.png"
 
 # Time & Date - Country and Time Zone
 COUNTRY = str(os.environ.get("COUNTRY") or "")
@@ -182,6 +197,9 @@ TEMP_DOWNLOAD_DIRECTORY = os.environ.get(
 # Uptobox
 USR_TOKEN = os.environ.get("USR_TOKEN_UPTOBOX", None)
 
+# Inline bot helper
+BOT_TOKEN = os.environ.get("BOT_TOKEN") or None
+BOT_USERNAME = os.environ.get("BOT_USERNAME") or None
 
 # Setting Up CloudMail.ru and MEGA.nz extractor binaries,
 # and giving them correct perms to work properly.
@@ -238,3 +256,256 @@ CMD_HELP = {}
 ZALG_LIST = {}
 ISAFK = False
 AFKREASON = None
+
+
+# ================= CONSTANT =================
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
+# ============================================
+
+
+def paginate_help(page_number, loaded_modules, prefix):
+    number_of_rows = 5
+    number_of_cols = 2
+    helpable_modules = [p for p in loaded_modules if not p.startswith("_")]
+    helpable_modules = sorted(helpable_modules)
+    modules = [
+        custom.Button.inline(
+            "{} {} 🔸".format(
+                "🔸", x), data="ub_modul_{}".format(x))
+        for x in helpable_modules
+    ]
+    pairs = list(zip(modules[::number_of_cols],
+                     modules[1::number_of_cols]))
+    if len(modules) % number_of_cols == 1:
+        pairs.append((modules[-1],))
+    max_num_pages = ceil(len(pairs) / number_of_rows)
+    modulo_page = page_number % max_num_pages
+    if len(pairs) > number_of_rows:
+        pairs = pairs[
+            modulo_page * number_of_rows: number_of_rows * (modulo_page + 1)
+        ] + [
+            (
+                custom.Button.inline(
+                    "⇍", data="{}_prev({})".format(prefix, modulo_page)
+                ),
+                custom.Button.inline(
+                    "TUTUP", data="{}_close({})".format(prefix, modulo_page)
+                ),
+                custom.Button.inline(
+                    "⇏", data="{}_next({})".format(prefix, modulo_page)
+                ),
+            )
+        ]
+    return pairs
+
+
+with bot:
+    try:
+        tgbot = TelegramClient(
+            "TG_BOT_TOKEN",
+            api_id=API_KEY,
+            api_hash=API_HASH).start(
+            bot_token=BOT_TOKEN)
+
+        dugmeler = CMD_HELP
+        me = bot.get_me()
+        uid = me.id
+
+        @tgbot.on(
+            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+                data=re.compile("open")
+            )
+        )
+        async def opeen(event):
+            try:
+                tgbotusername = BOT_USERNAME
+                if tgbotusername is not None:
+                    results = await event.client.inline_query(tgbotusername, "@AzumiUserbot")
+                    await results[0].click(
+                        event.chat_id, reply_to=event.reply_to_msg_id, hide_via=True
+                    )
+                    await event.delete()
+                else:
+                    await event.edit(
+                        "`The bot doesn't work! Please set the Bot Token and Username correctly. The module has been stopped.`"
+                    )
+            except Exception:
+                return await event.edit(
+                    "`You cannot send inline results in this chat (caused by SendInlineBotResultRequest)`"
+                )
+
+        geezlogo = INLINE_PIC
+        plugins = CMD_HELP
+        vr = BOT_VER
+
+        @tgbot.on(events.NewMessage(pattern="/start"))
+        async def handler(event):
+            if event.message.from_id != uid:
+                u = await event.client.get_entity(event.chat_id)
+                await event.reply(
+                    f"Hallo [{get_display_name(u)}](tg://user?id={u.id}) Selamat Datang Di\n**Azumi Userbot Project**\nKalo mau tau lebih lanjut silahkan Join Ke \n**𝗚𝗥𝗢𝗨𝗣 𝗦𝗨𝗣𝗣𝗢𝗥𝗧** Dibawah Ini.\n",
+                    buttons=[
+                        [
+                            Button.url("📢 Channel Support",
+                                       "t.me/levinachannel"),
+                            Button.url("🚨 Group support",
+                                       "t.me/gcsupportbots")],
+                        [Button.url("👤 Development",
+                                    "t.me/dlwrml")],
+                    ]
+                )
+
+        @tgbot.on(events.NewMessage(pattern="/ping"))
+        async def handler(event):
+            if event.message.from_id != uid:
+                start = datetime.now()
+                end = datetime.now()
+                ms = (end - start).microseconds / 1000
+                await tgbot.send_message(
+                    event.chat_id,
+                    f"**PONG!!**\n `{ms}ms`",
+                )
+
+        @tgbot.on(events.InlineQuery)  # pylint:disable=E0602
+        async def inline_handler(event):
+            builder = event.builder
+            result = None
+            query = event.text
+            if event.query.user_id == uid and query.startswith(
+                    "@Geez-Project"):
+                buttons = paginate_help(0, dugmeler, "helpme")
+                result = builder.photo(
+                    file=geezlogo,
+                    link_preview=False,
+                    text=f"🦊𝘼𝙯𝙪𝙢𝙞 𝙐𝙨𝙚𝙧𝙗𝙤𝙩🦊\n\n🦊**Owner : {DEFAULTUSER}**\n\n🦊 **Bot Ver :** `4.0`\n🦊 **𝗠odules :** `{len(plugins)}`\n\n🦊 **Dev : LEVINA **".format(
+                        len(dugmeler),
+                    ),
+                    buttons=buttons,
+                )
+            elif query.startswith("tb_btn"):
+                result = builder.article(
+                    "Bantuan Dari 🦊𝘼𝙯𝙪𝙢𝙞 𝙐𝙨𝙚𝙧𝙗𝙤𝙩🦊 ",
+                    text="Daftar Plugins",
+                    buttons=[],
+                    link_preview=True)
+            else:
+                result = builder.article(
+                    " 🦊𝘼𝙯𝙪𝙢𝙞 𝙐𝙨𝙚𝙧𝙗𝙤𝙩🦊 ",
+                    text="""**🦊𝘼𝙯𝙪𝙢𝙞 𝙐𝙨𝙚𝙧𝙗𝙤𝙩🦊\n\n Anda Bisa Membuat Geez Userbot Anda Sendiri Dengan Cara:** __TEKAN DIBAWAH INI!__ 👇""",
+                    buttons=[
+                        [
+                            custom.Button.url(
+                                "🦊𝘼𝙯𝙪𝙢𝙞 𝙐𝙨𝙚𝙧𝙗𝙤𝙩🦊",
+                                "https://github.com/levina-lab/AzumiUserbot"),
+                            custom.Button.url(
+                                "OWNER",
+                                "t.me/dlwrml")]],
+                    link_preview=False,
+                )
+            await event.answer([result] if result else None)
+
+        @tgbot.on(
+            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+                data=re.compile(rb"helpme_next\((.+?)\)")
+            )
+        )
+        async def on_plug_in_callback_query_handler(event):
+            if event.query.user_id == uid:  # pylint:disable=E0602
+                current_page_number = int(
+                    event.data_match.group(1).decode("UTF-8"))
+                buttons = paginate_help(
+                    current_page_number + 1, dugmeler, "helpme")
+                # https://t.me/TelethonChat/115200
+                await event.edit(buttons=buttons)
+            else:
+                reply_pop_up_alert = f"🚫!WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER}."
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
+        @tgbot.on(
+            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+                data=re.compile(rb"helpme_close\((.+?)\)")
+            )
+        )
+        async def on_plug_in_callback_query_handler(event):
+            if event.query.user_id == uid:  # @Geez-Project
+                # https://t.me/TelethonChat/115200
+                await event.edit(
+                    file=geezlogo,
+                    link_preview=True,
+                    buttons=[
+                        [
+                            Button.url("📢 Channel Support",
+                                       "t.me/levinachannel"),
+                            Button.url("🚨 Group support",
+                                       "t.me/gcsupportbots")],
+                        [custom.Button.inline(
+                            "Close", b"close")],
+                    ]
+                )
+
+        @ tgbot.on(
+            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+                data=re.compile(rb"helpme_prev\((.+?)\)")
+            )
+        )
+        async def on_plug_in_callback_query_handler(event):
+            if event.query.user_id == uid:  # pylint:disable=E0602
+                current_page_number = int(
+                    event.data_match.group(1).decode("UTF-8"))
+                buttons = paginate_help(
+                    current_page_number - 1, dugmeler, "helpme"  # pylint:disable=E0602
+                )
+                # https://t.me/TelethonChat/115200
+                await event.edit(buttons=buttons)
+            else:
+                reply_pop_up_alert = f"🚫!WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER}."
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
+        @tgbot.on(
+            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+                data=re.compile(rb"ub_modul_(.*)")
+            )
+        )
+        async def on_plug_in_callback_query_handler(event):
+            if event.query.user_id == uid:  # pylint:disable=E0602
+                modul_name = event.data_match.group(1).decode("UTF-8")
+
+                cmdhel = str(CMD_HELP[modul_name])
+                if len(cmdhel) > 180:
+                    help_string = (
+                        str(CMD_HELP[modul_name]).replace(
+                            '`', '')[:180] + "..."
+                        + "\n\nBaca Text Berikutnya Ketik .help "
+                        + modul_name
+                        + " "
+                    )
+                else:
+                    help_string = str(CMD_HELP[modul_name]).replace('`', '')
+
+                reply_pop_up_alert = (
+                    help_string
+                    if help_string is not None
+                    else "{} No document has been written for module.".format(
+                        modul_name
+                    )
+                )
+            else:
+                reply_pop_up_alert = f"🚫!WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER}."
+
+            await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
+        @tgbot.on(events.CallbackQuery(data=b"close"))
+        async def close(event):
+            await event.edit("Menu Ditutup!", buttons=Button.clear())
+
+    except BaseException:
+        LOGS.info(
+            "Mode Inline Bot Mu Nonaktif. "
+            "Untuk Mengaktifkannya, Silahkan Pergi Ke @BotFather Lalu, Settings Bot > Pilih Mode Inline > Turn On. ")
+    try:
+        bot.loop.run_until_complete(check_botlog_chatid())
+    except BaseException:
+        LOGS.info(
+            "BOTLOG_CHATID Environment Variable Isn't a "
+            "Valid Entity. Please Check Your Environment variables/config.env File.")
+        quit(1)
