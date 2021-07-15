@@ -38,6 +38,7 @@ pybase64
 pyfiglet
 pylast
 pySmartDL
+pymongo[srv]
 python-barcode
 python-dotenv
 youtube-dl
