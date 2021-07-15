@@ -5,8 +5,16 @@
 #
 """ Userbot help command """
 
-from userbot import CMD_HELP
+import asyncio
+from userbot import ALIVE_NAME, CMD_HELP
 from userbot.events import register
+from platform import uname
+
+modules = CMD_HELP
+
+# ================= CONSTANT =================
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
+# ============================================
 
 
 @register(outgoing=True, pattern="^.help(?: |$)(.*)")
@@ -18,6 +26,8 @@ async def help(event):
             await event.edit(str(CMD_HELP[args]))
         else:
             await event.edit("mohon berikan nama modul yang benar.")
+            await asyncio.sleep(200)
+            await event.delete()
     else:
         string = ""
         for i in CMD_HELP:
@@ -28,3 +38,5 @@ async def help(event):
             "\n\n📚 Untuk melihat detail & penjelasan setiap modul gunakan perintah help.\
                         \n\n**Contoh:** `.help` <nama modul>"
         )
+        await asyncio.sleep(1000)
+        await event.delete()
