@@ -142,10 +142,12 @@ ANTI_SPAMBOT_SHOUT = sb(os.environ.get("ANTI_SPAMBOT_SHOUT") or "False")
 ALIVE_NAME = os.environ.get("ALIVE_NAME") or "Azumi"
 
 # Default .alive logo
-ALIVE_LOGO = os.environ.get("ALIVE_LOGO") or "https://telegra.ph/file/a95ae386a01cee3c0892e.png"
+ALIVE_LOGO = os.environ.get(
+    "ALIVE_LOGO") or "https://telegra.ph/file/a95ae386a01cee3c0892e.png"
 
 # For default inline pic
-INLINE_PIC = os.environ.get("INLINE_PIC") or "https://telegra.ph/file/787aeeae0398c8b46c5a5.png"
+INLINE_PIC = os.environ.get(
+    "INLINE_PIC") or "https://telegra.ph/file/787aeeae0398c8b46c5a5.png"
 
 # Time & Date - Country and Time Zone
 COUNTRY = str(os.environ.get("COUNTRY") or "")
