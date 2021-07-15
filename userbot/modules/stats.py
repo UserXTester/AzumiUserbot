@@ -12,6 +12,7 @@ from telethon.events import NewMessage
 from telethon.tl.custom import Dialog
 from telethon.tl.types import Channel, Chat, User
 
+from userbot import CMD_HELP
 from userbot.events import register
 
 logging.basicConfig(
@@ -113,3 +114,10 @@ def user_full_name(user):
     names = [i for i in list(names) if i]
     full_name = ' '.join(names)
     return full_name
+
+CMD_HELP.update(
+    {
+        "statistik": ".stats\
+        \nUsage: Untuk mengambil statistik akun mu."
+    }
+)
