@@ -404,7 +404,7 @@ with bot:
             result = None
             query = event.text
             if event.query.user_id == uid and query.startswith(
-                    "@gcsupportbots"):
+                    "@AzumiUserbot"):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = builder.photo(
                     file=azumilogo,
@@ -459,7 +459,7 @@ with bot:
             )
         )
         async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid:  # @gcsupportbots
+            if event.query.user_id == uid:  # @AzumiUserbot
                 # https://t.me/TelethonChat/115200
                 await event.edit(
                     file=azumilogo,
