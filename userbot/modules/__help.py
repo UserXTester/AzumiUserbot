@@ -1,28 +1,40 @@
+# Copyright (C) 2020 TeamDerUntergang.
+#
+# Licensed under the Raphielscape Public License, Version 1.d (the "License");
+# you may not use this file except in compliance with the License.
+#
+
+# @Qulec tarafından yazılmıştır.
+# Thanks @Spechide.
+
 import logging
 
-from userbot import BOT_USERNAME
+from userbot import BOT_USERNAME, BOT_TOKEN
 from userbot.events import register
+from telethon.errors.rpcerrorlist import BotInlineDisabledError
 
 logging.basicConfig(
-    format="[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s",
+    format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
     level=logging.WARNING)
 
 
-@register(outgoing=True, pattern=r"^\.helpme")
+@register(outgoing=True, pattern="^.helpme")
 async def yardim(event):
-    try:
-        tgbotusername = BOT_USERNAME
-        if tgbotusername is not None:
-            results = await event.client.inline_query(tgbotusername, "inl_but_data")
-            await results[0].click(
-                event.chat_id, reply_to=event.reply_to_msg_id, hide_via=True
+    tgbotusername = BOT_USERNAME
+    if tgbotusername and BOT_TOKEN:
+        try:
+            results = await event.client.inline_query(
+                tgbotusername,
+                "@AzumiProject"
             )
-            await event.delete()
-        else:
-            await event.edit(
-                "`Botnya tidak berfungsi! Silahkan atur Bot Token dan Username dengan benar. Modul telah dihentikan.`"
-            )
-    except Exception:
-        return await event.edit(
-            "`Anda tidak dapat mengirim hasil sebaris dalam obrolan ini (disebabkan oleh SendInlineBotResultRequest)`"
+        except BotInlineDisabledError:
+            return await event.edit("`Bot can't be used in inline mode.\nMake sure to turn on inline mode!`")
+        await results[0].click(
+            event.chat_id,
+            reply_to=event.reply_to_msg_id,
+            hide_via=True
         )
+        await event.delete()
+    else:
+        return await event.edit("`The bot doesn't work! Please set the Bot Token and Username correctly.`"
+                                "\n`The module has been stopped.`")
