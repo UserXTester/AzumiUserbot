@@ -3,8 +3,6 @@ FROM biansepang/weebproject:buster
 RUN git clone -b main https://github.com/levina-lab/AzumiUserbot /home/azumiuserbot/ \
     && chmod 777 /home/azumiuserbot \
     && mkdir /home/azumiuserbot/bin/
-    
-RUN pip install --upgrade pip setuptools
 
 COPY ./sample_config.env ./config.env* /home/azumiuserbot/
 
