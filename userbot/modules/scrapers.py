@@ -649,12 +649,6 @@ CMD_HELP.update(
 )
 CMD_HELP.update(
     {
-        "carbon": ".carbon <text> [or reply]\
-        \nUsage: Beautify your code using carbon.now.sh\nUse .crblang <text> to set language for your code."
-    }
-)
-CMD_HELP.update(
-    {
         "google": ".google <query>\
         \nUsage: Does a search on Google."
     }
