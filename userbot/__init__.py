@@ -404,7 +404,7 @@ with bot:
             result = None
             query = event.text
             if event.query.user_id == uid and query.startswith(
-                    "@AzumiUserbot"):
+                    "inl_but_data"):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = builder.photo(
                     file=azumilogo,
@@ -423,7 +423,7 @@ with bot:
             else:
                 result = builder.article(
                     " 🦊𝘼𝙯𝙪𝙢𝙞 𝙐𝙨𝙚𝙧𝙗𝙤𝙩🦊 ",
-                    text="""**🦊𝘼𝙯𝙪𝙢𝙞 𝙐𝙨𝙚𝙧𝙗𝙤𝙩🦊\n\n Anda Bisa Membuat Geez Userbot Anda Sendiri Dengan Cara:** __TEKAN DIBAWAH INI!__ 👇""",
+                    text="""**🦊𝘼𝙯𝙪𝙢𝙞 𝙐𝙨𝙚𝙧𝙗𝙤𝙩🦊\n\n Anda Bisa Membuat Azumi Userbot Anda Sendiri Dengan Cara:** __TEKAN DIBAWAH INI!__ 👇""",
                     buttons=[
                         [
                             custom.Button.url(
