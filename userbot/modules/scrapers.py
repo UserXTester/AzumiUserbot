@@ -11,13 +11,8 @@ import os
 import re
 import shutil
 import time
-from asyncio import sleep
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 from re import findall
-from time import sleep
 from urllib.error import HTTPError
-from urllib.parse import quote_plus
 
 from bs4 import BeautifulSoup
 from emoji import get_emoji_regexp
@@ -43,7 +38,7 @@ from youtube_dl.utils import (
 )
 from youtube_search import YoutubeSearch
 
-from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, WOLFRAM_ID, CHROME_DRIVER, GOOGLE_CHROME_BIN
+from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, WOLFRAM_ID
 from userbot.events import register
 from userbot.utils import googleimagesdownload, progress
 
