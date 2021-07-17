@@ -1,17 +1,11 @@
 # AzumiUserbot - UserBot
 # Copyright (C) 2021 TeamUltroid
 #
-# This file is a part of
-from . import *
-from telethon.tl.types import InputMessagesFilterPhotos
-from PIL import Image, ImageDraw, ImageFont
-import random
-import os
-import glob
-< https: // github.com / levina - lab / AzumiUserbot >
+# This file is a part of 
+<https://github.com/levina-lab/AzumiUserbot>
 # PLease read the GNU Affero General Public License in
-#
-<https: // github.com / levina - lab / AzumiUserbot / blob / main / LICENSE > .
+# 
+<https://github.com/levina-lab/AzumiUserbot/blob/main/LICENSE>.
 
 """
 ✘ Commands Available -
@@ -22,6 +16,15 @@ import glob
    Or Reply To Font File, To write with that font.
 
 """
+
+import glob
+import os
+import random
+
+from PIL import Image, ImageDraw, ImageFont
+from telethon.tl.types import InputMessagesFilterPhotos
+
+from . import *
 
 
 @AzumiUserbot_cmd(pattern="logo ?(.*)")
@@ -85,8 +88,9 @@ async def logo_gen(event):
     )
     x = (image_width - w) / 2
     y = (image_height - h) / 2
-    draw.text((x, y), name, font=font, fill="white",
-              stroke_width=strke, stroke_fill="black")
+    draw.text(
+        (x, y), name, font=font, fill="white", stroke_width=strke, stroke_fill="black"
+    )
     flnme = f"azumi.png"
     img.save(flnme, "png")
     await xx.edit("`Done!please wait `")
